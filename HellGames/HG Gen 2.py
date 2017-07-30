@@ -153,30 +153,35 @@ while True:
     if touching(pic1,hieattack3) or touching(pic1,hieattack2):
         p1HP.smallHit()
         p1.damage()
+        killSprite(hieattack3)
 
     if touching(pic1, drFist1): 
         p1HP.bigHit()
         p1.damage()
+        killSprite(drFist1)
 
     
     if touching(pic1, drFist2): 
         p1HP.bigHit()
         p1.damage()
+        killSprite(drFist2)
 
     
     if touching(pic1, drFist3): 
         p1HP.bigHit()
         p1.damage()
-    
+        killSprite(drFist3)
+        
     if touching(pic1, drFist4): 
         p1HP.bigHit()
         p1.damage()
-
+        killSprite(drFist4)
     
     if touching(pic1, drFist5): 
         p1HP.bigHit()
         p1.damage()
-    
+        killSprite(drFist5)
+        
     if p1HP.life < 0:
         end()
         
