@@ -9,15 +9,15 @@ fPlayer = input('WHat character for p1?')
 sPlayer = input('what character for p2')
 
 #Possible Player Instances
-HIEP1 = Hie(imageListH[0], 100, 100)
-HIEP2 = Hie(imageListH[-1], 200, 100)
 
-VEGP1 = Vegeta(imageListV[0], 200, 100)
-VEGP2 = Vegeta(imageListV[-1], 100, 100)
+HIEP1 = Hie(imageListH[0], 100, 100, 5)
+HIEP2 = Hie(imageListH[-1], 200, 100, 5)
+
+VEGP1 = Vegeta(imageListV[0], 200, 100, 5)
+VEGP2 = Vegeta(imageListV[-1], 100, 100, 5)
 
 
 def firstPlayer():
-
 
 
     if fPlayer == "Hie":
@@ -25,7 +25,6 @@ def firstPlayer():
 
         HIEP1.fPlay()
         fp = True
-
 
 
     if fPlayer == "Vegeta":
