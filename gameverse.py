@@ -2,6 +2,9 @@ from vegeta import *
 from hie import *
 from goku import *
 
+
+
+
 base = 400
 
 p1Pos = 100
@@ -9,6 +12,7 @@ p2Pos = 200
 
 
 #Possible Player Instances
+
 
 
 HIEP1 = Hie(imageListH[0], p1Pos, base, 5,  5)

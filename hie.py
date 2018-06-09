@@ -2,6 +2,8 @@ from Player import*
 
 hieL = makeSprite(os.path.join("images", "Hie1.png"))
 hieR = makeSprite(os.path.join("images", "HieR1.png"))
+
+
 imageListH = [hieL, hieR]
 
 class Hie(Player):
