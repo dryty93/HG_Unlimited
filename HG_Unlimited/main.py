@@ -5,9 +5,6 @@ seconds = 0.00
 
 time = makeLabel(str(seconds),60,454,0,'white')
 
-firstPlayer()
-secondPlayer()
-
 
 while True:
     seconds += 0.1
@@ -16,8 +13,10 @@ while True:
     showLabel(time)
 
 
-    if keyPressed('a'):
-        HIEP2.left()
+    charSelect()
+
+    if keyPressed("m"):
+        print('k')
 
     tick(300)
 

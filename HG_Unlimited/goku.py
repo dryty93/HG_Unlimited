@@ -1,10 +1,10 @@
 from Player import*
 
-vegetaStance = makeSprite(os.path.join("images", "vegeta_stand.png"))
-vegetaStanceR = makeSprite(os.path.join("images", "vegeta_standR.png"))
-imageListV = [vegetaStance, vegetaStanceR]
+gokuStance = makeSprite(os.path.join("images", "goku0.png"))
+gokuStanceR = makeSprite(os.path.join("images", "goku0R.png"))
+imageListG = [gokuStance,gokuStanceR ]
 
-class Vegeta(Player):
+class Goku(Player):
 
     def __init__(self, image, xPos, yPos,  xSpeed, ySpeed):
         super().__init__(self, xPos, yPos, xSpeed, ySpeed)
@@ -13,26 +13,5 @@ class Vegeta(Player):
         self.yPos = yPos
         self.xSpeed = xSpeed
         self.ySpeed = ySpeed
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -1,22 +1,17 @@
 from pygame_functions import *
 from os import path
 
-screenSize(500, 800)
+screenSize(800, 600)
 
 
 class Player():
 
-    def __init__(self, image, xPos, yPos, velocity):
+    def __init__(self, image, xPos, yPos, xSpeed, ySpeed):
         self.image = image
         self.xPos = xPos
         self.yPos = yPos
-        self.velocity = velocity
-
-    def update(self):
-        self.xPos += self.velocity
-        moveSprite(self.image, self.xPos, self.yPos, False)
-        moveSprite(self.image, self.xPos, self.yPos)
-        showSprite(self.image)
+        self.xSpeed = xSpeed
+        self.ySpeed = ySpeed
 
     def playerSide(self):
         pass
@@ -34,10 +29,34 @@ class Player():
 
     def left(self):
         # Move Left
-        self.velocity = -4
         self.xPos += self.velocity
+        moveSprite(self.image, self.xPos, self.yPos, True)
         moveSprite(self.image, self.xPos, self.yPos)
-        #showSprite(self.image)
         print('triggered')
+
+
+    def fPlay(self):
+        """Moves player instance into position for first place"""
+        moveSprite(self.image, self.xPos, self.yPos)
+        showSprite(self.image)
+        nextSpriteImage(self.image)
+
+        # 800 600
+
+    def sPlay(self):
+        """Moves player instance into position for 2nd place"""
+        moveSprite(self.image, self.xPos, self.yPos)
+        showSprite(self.image)
+        nextSpriteImage(self.image)
+
+    def left(self):
+        #Move Left
+
+        self.xPos -= self.xSpeed
+        moveSprite(self.image, self.xPos, self.yPos)
+        if self.xPos < 56.0:
+            self.xPos = 56.0
+
+
 
 
