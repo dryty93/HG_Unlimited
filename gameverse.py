@@ -2,19 +2,23 @@ from vegeta import *
 from hie import *
 from goku import *
 
-base = 300
+base = 400
+
+p1Pos = 100
+p2Pos = 200
 
 
 #Possible Player Instances
 
-HIEP1 = Hie(imageListH[0], 100, 400, 5,  5)
-HIEP2 = Hie(imageListH[-1], 200, 400, 5,  5)
 
-VEGP1 = Vegeta(imageListV[0], 100, 400,  5, 5)
-VEGP2 = Vegeta(imageListV[-1], 200, 400,  5, 5)
+HIEP1 = Hie(imageListH[0], p1Pos, base, 5,  5)
+HIEP2 = Hie(imageListH[-1], p2Pos, base, 5,  5)
 
-GOKU1 = Goku(imageListG[-1], 200, 400, 5,  5)
-GOKU2 = Goku(imageListG[-1], 200, 400,  5, 5)
+VEGP1 = Vegeta(imageListV[0], p1Pos, base,  5, 5)
+VEGP2 = Vegeta(imageListV[-1], p2Pos, base,  5, 5)
+
+GOKU1 = Goku(imageListG[0], p1Pos, base, 5,  5)
+GOKU2 = Goku(imageListG[-1], p2Pos, base,  5, 5)
 
 
 fPlayer = input('WHat character for p1?')
@@ -25,7 +29,7 @@ drawLine(0, 470, 800, 475, 'White', linewidth= 10)
 
 def charSelect():
 #this is where player will be selected. Will update
-# for gui in the future
+ #for gui in the future
 
     firstPlayer()
     secondPlayer()
@@ -49,8 +53,8 @@ def firstPlayer():
 
 
 def secondPlayer():
-    """Assigns instance of char based on 2st
-     player screen positionioning and options"""
+    #Assigns instance of char based on 2st
+     #player screen positionioning and options
 
     if sPlayer == "Vegeta":
 

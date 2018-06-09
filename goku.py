@@ -1,8 +1,8 @@
 from Player import*
 
-gokuStance = makeSprite(os.path.join("images", "goku0.png"))
-gokuStanceR = makeSprite(os.path.join("images", "goku0R.png"))
-imageListG = [gokuStance,gokuStanceR ]
+gokuStance = makeSprite(os.path.join("images", "goku0R.png"))
+gokuStanceR = makeSprite(os.path.join("images", "goku0.png"))
+imageListG = [gokuStanceR,gokuStance ]
 
 class Goku(Player):
 
