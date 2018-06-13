@@ -3,40 +3,13 @@ from hie import *
 from goku import *
 
 
+#imageListG.add(gokuL[2])
 
-
-base = 400
-
-p1Pos = 100
-p2Pos = 200
-
-
-#Possible Player Instances
+fPlayer = input("P1: What character do you choose?")
+sPlayer = input("P2: What character do you choose?")
 
 
 
-HIEP1 = Hie(imageListH[0], p1Pos, base, 5,  5)
-HIEP2 = Hie(imageListH[-1], p2Pos, base, 5,  5)
-
-VEGP1 = Vegeta(imageListV[0], p1Pos, base,  5, 5)
-VEGP2 = Vegeta(imageListV[-1], p2Pos, base,  5, 5)
-
-GOKU1 = Goku(imageListG[0], p1Pos, base, 5,  5)
-GOKU2 = Goku(imageListG[-1], p2Pos, base,  5, 5)
-
-
-fPlayer = input('WHat character for p1?')
-
-sPlayer = input('what character for p2?')
-
-drawLine(0, 470, 800, 475, 'White', linewidth= 10)
-
-def charSelect():
-#this is where player will be selected. Will update
- #for gui in the future
-
-    firstPlayer()
-    secondPlayer()
 
 def firstPlayer():
 
@@ -52,7 +25,19 @@ def firstPlayer():
         VEGP1.fPlay()
 
     if fPlayer == "Goku":
-        GOKU1.fPlay()
+        GOKUP1.fPlay()
+
+        if keyPressed("i"):
+            GOKUP1.sSI = True
+            GOKUP1.superI()
+            if GOKUP1.xp < 100:
+                GOKUP1.sSI = False
+
+        if keyPressed("p") and keyPressed("left"):
+            GOKUP1.kamehaL()
+
+        if keyPressed("9"):
+            GOKUP1.powerUp()
 
 
 
@@ -69,13 +54,12 @@ def secondPlayer():
 
         HIEP2.sPlay()
 
-        if keyPressed('a'):
-
-            HIEP2.left()
-
     if sPlayer == "Goku":
 
-        GOKU2.sPlay()
+        GOKUP2.sPlay()
+
+        if keyPressed("q"):
+            GOKUP2.kamehaR()
 
 
 
