@@ -2,7 +2,7 @@ from pygame_functions import *
 from os import path
 from spritesheetFunctions import *
 
-screenSize(400, 600)
+screenSize(500, 500)
 
 
 class Player(newSprite):
@@ -142,5 +142,6 @@ class Player(newSprite):
         self.xp = 100
 
 
-
-
+    def animate(self):
+        self.xPos -= 6
+        self.xPos += 6

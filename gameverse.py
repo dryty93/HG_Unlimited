@@ -19,6 +19,7 @@ def firstPlayer():
     if fPlayer == "Hie":
 
         HIEP1.fPlay()
+        HIEP1.animate()
 
 
     if fPlayer == "Vegeta":
@@ -27,11 +28,13 @@ def firstPlayer():
     if fPlayer == "Goku":
         GOKUP1.fPlay()
 
+        if GOKUP1.xp < 100:
+            GOKUP1.sSI = False
+            GOKUP1.initial()
+
         if keyPressed("i"):
-            GOKUP1.sSI = True
             GOKUP1.superI()
-            if GOKUP1.xp < 100:
-                GOKUP1.sSI = False
+
 
         if keyPressed("p") and keyPressed("left"):
             GOKUP1.kamehaL()
@@ -58,7 +61,7 @@ def secondPlayer():
 
         GOKUP2.sPlay()
 
-        if keyPressed("q"):
+        if keyPressed("q") and keyPressed("c"):
             GOKUP2.kamehaR()
 
 

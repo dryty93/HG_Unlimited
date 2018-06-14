@@ -94,16 +94,17 @@ print(count)
 
 class Goku(Player):
 
-    def __init__(self, image, xPos, yPos,  xSpeed, ySpeed, xp, sSI = False, sSII = False):
+    def __init__(self, image, xPos, yPos,  xSpeed, ySpeed, xp, sSI = False, sSII = False, sSIII = False):
         super().__init__(self, xPos, yPos, xSpeed, ySpeed,xp, sSI, sSII)
         self.image = image
         self.xPos = xPos
         self.yPos = yPos
         self.xSpeed = xSpeed
         self.ySpeed = ySpeed
+        self.xp = xp
         self.sSI = sSI
         self.sSII = sSII
-        self.xp = xp
+
 
 
 
@@ -113,27 +114,66 @@ class Goku(Player):
         if self.fP:
 
             if GOKUP1.xp >= 100:
+                GOKUP1.sSI = True
+                GOKUP1.xp -= .2
 
-                self.sSI = 2 > 1
+                GOKUP1.sSI = 2 > 1
                # addSpriteImage(GOKUP1.image, gokuL[12])
                 killSprite(GOKUP1.image)
                 GOKUP1.image = makeSprite(gokuL[12])
 
+            elif GOKUP1.xp < 100:
+                GOKUP1.sSI = 2 < 1
+                GOKUP1.initial()
 
-            if GOKUP1.xp < 100:
-                self.sSI = 2 < 1
-                killSprite(GOKUP1.image)
-                GOKUP1.image = makeSprite(gokuL[0])
+
+    def superSII(self):
+        if GOKUP1.sSII:
+            GOKUP1.xp -= 1
+            print(GOKUP1.xp)
+
+            GOKUP1.sSI = 2 > 1
+
+            addSpriteImage(GOKUP1.image, gokuL[25])
+            nextSpriteImage(GOKUP1.image)
+
+    def superSIII(self):
+        if GOKUP1.sSII:
+            GOKUP1.xp -= 2
+            print(GOKUP1.xp)
+
+            GOKUP1.sSI = 2 > 1
+
+            addSpriteImage(GOKUP1.image, gokuL[47])
+            nextSpriteImage(GOKUP1.image)
 
     def powerUp(self):
 
         self.xp += 5
+        power = makeSprite(os.path.join("images", "trail_00.png"))
+        rotateSprite(power, 180)
+        #moveSprite(power, self.xPos, self.yPos)
+
+        #showSprite(power)
+        if self.xp >= 100:
+            if self.xp < 200:
+                self.sSI = True
+                self.sSI
+            if self.xp >= 200:
+                self.sSII = True
+                print("sSII")
+                self.superSII()
+            if self.xp >= 300:
+                self.sSIII = True
+                self.superSIII()
+                print('ssIII')
 
         print(self.xp)
 
     def kamehaL(self):
 
         if self.fP:
+
 
             self.xp -= 20
             print(self.xp)
@@ -154,11 +194,8 @@ class Goku(Player):
                 hideSprite(gokuAttacks)
 
 
-
-
             else:
                 if GOKUP1.sSI:
-                    print("SSi")
 
                     counted = 11
 
@@ -174,6 +211,9 @@ class Goku(Player):
                         moveSprite(gokuAttacks, i, self.yPos)
                     hideSprite(gokuAttacks)
 
+
+
+
     def kamehaR(self):
         if self.sP:
             counted = -1
@@ -182,11 +222,12 @@ class Goku(Player):
                 addSpriteImage(GOKUP2.image, gokuR[counted])
                 pause(50, True)
                 nextSpriteImage(GOKUP2.image)
-                print(GOKUP2.currentImage)
             showSprite(gokuAttacks)
-            moveSprite(gokuAttacks, GOKUP1.xPos + self.xPos, GOKUP1.yPos, False)
-            for i in range(400, 100):
-                moveSprite(gokuAttacks, i, self.yPos)
+            moveSprite(gokuAttacks, GOKUP2.xPos + self.xPos, GOKUP2.yPos, False)
+            m = GOKUP2.xPos + 400
+            for i in range(int(GOKUP2.xPos), int(m)):
+                moveSprite(gokuAttacks, -i, self.yPos)
+                print(-i)
             hideSprite(gokuAttacks)
 
 
