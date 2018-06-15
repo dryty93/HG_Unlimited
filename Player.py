@@ -91,8 +91,8 @@ class Player(newSprite):
         self.xSpeed = +4
         self.xPos += self.xSpeed
         moveSprite(self.image, self.xPos, self.yPos)
-        if self.xPos > 760:
-            self.xPos = 760
+        if self.xPos > 450:
+            self.xPos = 450
 
 
     def quickLeft(self):

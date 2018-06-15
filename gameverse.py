@@ -32,8 +32,19 @@ def firstPlayer():
             GOKUP1.sSI = False
             GOKUP1.initial()
 
-        if keyPressed("i"):
-            GOKUP1.superI()
+        else:
+            if keyPressed("i"):
+                if GOKUP1.xp > 100 and GOKUP1.xp < 200:
+                    GOKUP1.sSI = True
+                    GOKUP1.superI()
+                elif GOKUP1.xp > 200 and GOKUP1.xp < 300:
+                    GOKUP1.sSII = True
+                    GOKUP1.superSII()
+                elif GOKUP1.xp >= 300:
+                    GOKUP1.sSIII = True
+                    GOKUP1.superSIII()
+
+
 
 
         if keyPressed("p") and keyPressed("left"):
@@ -63,6 +74,7 @@ def secondPlayer():
 
         if keyPressed("q") and keyPressed("c"):
             GOKUP2.kamehaR()
-
+        if keyPressed("1"):
+            GOKUP2.powerUp()
 
 
