@@ -111,75 +111,83 @@ class Goku(Player):
 
     def superI(self):
 
-        if self.fP:
 
-            if GOKUP1.xp >= 100:
-                if GOKUP1.xp < 200:
-                  GOKUP1.xp -= .2
-                  GOKUP1.sSI = True
+        if self.xp >= 100:
+            if self.xp < 200:
+                self.xp -= .2
+                self.sSI = True
 
-                   # addSpriteImage(GOKUP1.image, gokuL[12])
-                  killSprite(GOKUP1.image)
-                  GOKUP1.image = makeSprite(gokuL[12])
-                  print(GOKUP1.sSI)
+                killSprite(self.image)
+                if self.fP:
+                    self.image = makeSprite(gokuL[12])
+                elif self.sP:
+                    self.image = makeSprite(gokuR[12])
+                print(GOKUP1.sSI)
 
 
-                else:
+            else:
 
-                    GOKUP1.sSI = False
-                    GOKUP1.initial()
-                    print(GOKUP1.sSI)
+                self.sSI = False
+                self.initial()
+                print(self.sSI)
 
 
 
     def superSII(self):
 
-        if self.fP:
 
-            if GOKUP1.sSII:
-                GOKUP1.xp -= 1
-                print(GOKUP1.xp)
+        if self.sSII:
+            self.xp -= 1
+            print(self.xp)
 
-                GOKUP1.sSI = 2 > 1
-                killSprite(GOKUP1.image)
+            self.sSI = 2 > 1
+            killSprite(self.image)
 
-                GOKUP1.image = makeSprite(gokuL[25])
-                #nextSpriteImage(GOKUP1.image)
+            if self.fP:
 
-            else:
-                if GOKUP1.sSI:
-                    GOKUP1.superI()
+                self.image = makeSprite(gokuL[25])
+
+
+            elif self.sP:
+
+                self.image = makeSprite(gokuR[25])
+
+        else:
+            if self.sSI:
+                self.superI()
 
     def superSIII(self):
-        if self.fP:
 
-            if GOKUP1.sSIII:
-                GOKUP1.xp -= 2
-                print(GOKUP1.xp)
+        if self.sSIII:
+            self.xp -= 2
+            print(self.xp)
 
-                GOKUP1.sSI = 2 > 1
-                killSprite(GOKUP1.image)
-                GOKUP1.image = makeSprite(gokuL[47])
-                print(GOKUP1.sSIII)
+            self.sSI = 2 > 1
+            killSprite(self.image)
+            if self.fP:
+                self.image = makeSprite(gokuL[47])
+            elif self.sP:
+                self.image = makeSprite(gokuR[47])
+            print(self.sSIII)
 
-            else:
-                if GOKUP1.sSII:
-                    GOKUP1.superSII()
+        else:
+            if GOKUP1.sSII:
+                GOKUP1.superSII()
 
     def powerUp(self):
 
         self.xp += 5
         power = makeSprite(os.path.join("images", "ki.png"))
-        i = self.xPos - 60
-        n = self.yPos - 80
-        moveSprite(power,i, n)
+        xExact = self.xPos - 60
+        yExact = self.yPos - 80
+        moveSprite(power,xExact, yExact)
         showSprite(power)
         killSprite(power)
 
 
-
         if self.xp >= 400:
             self.xp = 400
+
 
 
         print(self.xp)

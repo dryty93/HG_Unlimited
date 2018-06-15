@@ -77,4 +77,20 @@ def secondPlayer():
         if keyPressed("1"):
             GOKUP2.powerUp()
 
+        if GOKUP2.xp < 100:
+            GOKUP2.sSI = False
+            GOKUP2.initial()
+
+        else:
+            if keyPressed("2"):
+                if GOKUP2.xp > 100 and GOKUP2.xp < 200:
+                    GOKUP2.sSI = True
+                    GOKUP2.superI()
+                elif GOKUP2.xp > 200 and GOKUP2.xp < 300:
+                    GOKUP2.sSII = True
+                    GOKUP2.superSII()
+                elif GOKUP2.xp >= 300:
+                    GOKUP2.sSIII = True
+                    GOKUP2.superSIII()
+
 
